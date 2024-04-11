@@ -1,0 +1,45 @@
+.btn {
+  text-align: center;
+  transition: 0.3s all ease-in-out;
+}
+.btn.btn-primary {
+  background-color: var(--primary);
+  color: var(--white);
+  font-weight: 600;
+}
+.btn.btn-primary:hover {
+  background-color: var(--primary2);
+}
+.btn.btn-secondary {
+  background-color: var(--secondary);
+  color: var(--white);
+  font-weight: 600;
+}
+.btn.btn-secondary:hover {
+  background-color: var(--secondary2);
+}
+.btn[disabled],
+.btn[disabled]:hover {
+  background-color: var(--grey);
+  color: var(--black);
+  cursor: default;
+}
+.btn.btn-lg {
+  padding: 0.75rem 1.5rem;
+}
+.btn.btn-md {
+  padding: 0.75rem 1rem;
+}
+.btn.btn-md-rect {
+  padding: 0.5rem 1rem;
+}
+.btn.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.88rem;
+}
+.btn.btn-rounded-md {
+  border-radius: 0.5rem;
+}
+.btn.btn-rounded-sm {
+  border-radius: 0.25rem;
+}

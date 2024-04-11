@@ -1,0 +1,68 @@
+.sidebar {
+  background: var(--white);
+  color: var(--black);
+  border: solid 1px var(--lightgrey);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 11;
+  width: 16.5rem;
+  height: 100vh;
+  padding: 1rem 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.sidebar.collapsed {
+  width: 4rem;
+}
+
+.sidebar.collapsed .collapse-hide {
+  display: none;
+}
+
+.sidebar.collapsed ul {
+  padding: 0rem 0;
+}
+
+.sidebar.collapsed svg {
+  font-size: 1.25rem;
+}
+
+.sidebar .sidebar-item {
+  padding: 0.75rem 1.5rem;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sidebar .sidebar-item span {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sidebar .sidebar-item span svg {
+  fill: var(--grey);
+}
+
+.sidebar .sidebar-item:hover {
+  background-color: var(--lightgrey);
+}
+
+.sidebar .sidebar-item.active {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.page-layout {
+  margin-left: 16.5rem;
+  padding: 2.5rem;
+  min-height: calc(100vh - 8rem);
+  transition: all 0.2s ease-in-out;
+}
+
+.page-layout.collapsed {
+  margin-left: 4rem;
+}

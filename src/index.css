@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #ea8271;
+  --primary2: #c26c8a;
+  --secondary: #52a0d2;
+  --secondary2: #2979A7;
+  --white: #fafafa;
+  --lightgrey: #e5e5e5;
+  --grey: #c4c4c4;
+  --black: #2d2d2d;
+}
+.recharts-responsive-container {
+  height: 24rem !important;
+}
