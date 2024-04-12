@@ -1,6 +1,11 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { api, myToast, dateFormatter } from "../../components/utils";
+import {
+  api,
+  myToast,
+  dateFormatter,
+  useDistinctStatuses,
+} from "../../components/utils";
 import {
   Button,
   Heading,
@@ -25,7 +30,7 @@ const ManagePatients = () => {
       const {
         data: { result, totalPages },
       } = await api.get(
-        `/patient?page=${page}&status=${status}&searchText=${searchText}`
+        `/patient?page=${page}&status=${status.toLowerCase()}&searchText=${searchText}`
       );
       setPatients(result);
       setTotalPages(totalPages);
@@ -53,10 +58,11 @@ const ManagePatients = () => {
       myToast(err.response.data.message, "failure");
     }
   };
+  const statuses = useDistinctStatuses();
   return (
     <div>
       <div className="flex justify-between items-center mb-4">
-        <Heading level={2} className="mb-4">
+        <Heading level={2}>
           Manage Patients
         </Heading>
         <div className="flex items-center gap-4">
@@ -71,8 +77,11 @@ const ManagePatients = () => {
             onChange={(e) => setStatus(e.target.value)}
           >
             <option value="all">All</option>
-            <option value="pregnancy">Pregnancy</option>
-            <option value="menstrual">Menstrual</option>
+            {statuses.map((status) => (
+              <option key={status} value={status} className="capitalize">
+                {status}
+              </option>
+            ))}
           </Select>
           <Link to="/patients/add-patient">
             <Button>Add Patient</Button>

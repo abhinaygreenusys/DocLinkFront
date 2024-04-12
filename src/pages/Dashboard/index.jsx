@@ -20,7 +20,6 @@ const Dashboard = () => {
       const {
         data: { result },
       } = await api.get("/dashboard");
-      console.log(result.patientsByMonthCount);
       setDashboard(result);
     } catch (err) {
       myToast(err.response.data.error, "failure");
@@ -49,9 +48,13 @@ const Dashboard = () => {
             />
             <DashboardCard
               title="Avg. Prescriptions per Patient"
-              number={(
-                dashboard.totalPatients / dashboard.totalPrescriptions
-              ).toFixed(2)}
+              number={
+                dashboard.totalPrescriptions === 0
+                  ? "0"
+                  : (
+                      dashboard.totalPatients / dashboard.totalPrescriptions
+                    ).toFixed(2)
+              }
             />
           </div>
           <div className="min-h-72 mt-8">

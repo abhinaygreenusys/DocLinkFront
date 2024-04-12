@@ -69,7 +69,7 @@ const AddPrescription = () => {
         e.preventDefault();
         addPrescription();
       }}
-      className="max-w-[30rem] mb-6"
+      className="max-w-[32rem] mb-6"
     >
       <Heading level={2} className="mb-4">
         Add Prescription

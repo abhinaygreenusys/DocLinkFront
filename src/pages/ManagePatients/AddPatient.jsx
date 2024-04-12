@@ -5,7 +5,7 @@ import {
   Button,
   Heading,
   TextArea,
-  Select,
+  InputStatus,
 } from "../../components/common";
 
 const AddPatient = () => {
@@ -23,7 +23,7 @@ const AddPatient = () => {
         email,
         phone,
         age,
-        status,
+        status: status.toLowerCase(),
         note,
       });
       myToast(data.msg, "success");
@@ -42,13 +42,14 @@ const AddPatient = () => {
           e.preventDefault();
           addPatient();
         }}
-        className="max-w-[30rem]"
+        className="max-w-[32rem]"
       >
         <section className="flex flex-col gap-4 mb-6">
           <Heading level={4}>Account Details</Heading>
           <p>
             The password will be randomly generated and sent to the
-            patient&apos;s email address (which can be changed later by the patient)
+            patient&apos;s email address (which can be changed later by the
+            patient)
           </p>
           <Input
             label="Name"
@@ -92,16 +93,7 @@ const AddPatient = () => {
           <Heading level={6}>
             Please categorize the patient based on their current status
           </Heading>
-          <Select
-            label="Status"
-            value={status}
-            onChange={(e) => setStatus(e.target.value)}
-            required
-          >
-            <option value="">Select Status</option>
-            <option value="pregnancy">Pregnancy</option>
-            <option value="menstrual">Menstrual</option>
-          </Select>
+          <InputStatus status={status} setStatus={setStatus} />
           <Heading level={6}>
             Any other notes you would like to add about the patient
           </Heading>

@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { api, myToast } from "../../components/utils";
-import { Button, Heading, TextArea, Select } from "../../components/common";
+import {
+  Button,
+  Heading,
+  TextArea,
+  InputStatus,
+} from "../../components/common";
 
 const EditPatient = () => {
   const { id } = useParams();
@@ -56,7 +61,7 @@ const EditPatient = () => {
           e.preventDefault();
           updatePatient();
         }}
-        className="max-w-[30rem]"
+        className="max-w-[32rem]"
       >
         <section className="flex flex-col gap-4 mb-6">
           <Heading level={4}>Account Details</Heading>
@@ -86,16 +91,10 @@ const EditPatient = () => {
           <Heading level={6}>
             Please categorize the patient based on their current status
           </Heading>
-          <Select
-            label="Status"
-            value={patient.status}
-            onChange={(e) => setPatient({ ...patient, status: e.target.value })}
-            required
-          >
-            <option value="">Select Status</option>
-            <option value="pregnancy">Pregnancy</option>
-            <option value="menstrual">Menstrual</option>
-          </Select>
+          <InputStatus
+            status={patient.status}
+            setStatus={(status) => setPatient({ ...patient, status })}
+          />
           <Heading level={6}>
             Any other notes you would like to add about the patient
           </Heading>

@@ -84,7 +84,7 @@ const EditProfile = () => {
           if (isValid) updateProfile(filteredQualifications);
           else myToast("Please fill all the qualification details", "failure");
         }}
-        className="max-w-[30rem]"
+        className="max-w-[32rem]"
       >
         <section className="flex flex-col gap-4 mb-6">
           <Heading level={4}>Account Details</Heading>

@@ -9,6 +9,7 @@ const Input = ({
   required = false,
   className = "",
   disabled = false,
+  list,
 }) => {
   const inputRef = useRef(null);
   const labelRef = useRef(null);
@@ -35,6 +36,7 @@ const Input = ({
         placeholder="."
         disabled={disabled}
         autoComplete="new-password"
+        {...(list && { list })}
       />
       <label ref={labelRef}>{label}</label>
     </div>

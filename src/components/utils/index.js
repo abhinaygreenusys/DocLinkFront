@@ -5,6 +5,7 @@ import updateToken from "./updateToken";
 import useHandleReturnUser from "./hooks/useHandleReturnUser";
 import useUserContext from "./hooks/useUserContext";
 import useWindowWidth from "./hooks/useWindowWidth";
+import useDistinctStatuses from "./hooks/useDistinctStatuses";
 
 export {
   api,
@@ -14,4 +15,5 @@ export {
   useHandleReturnUser,
   useUserContext,
   useWindowWidth,
+  useDistinctStatuses,
 };
