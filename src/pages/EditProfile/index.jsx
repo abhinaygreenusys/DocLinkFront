@@ -98,8 +98,7 @@ const EditProfile = () => {
             type="email"
             label="Email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
+            disabled
           />
           <InputPassword
             label="Current Password"
