@@ -4,6 +4,7 @@ import Heading from "./Heading";
 import Input from "./Input";
 import InputPassword from "./InputPassword";
 import InputStatus from "./InputStatus";
+import InputDataLabel from "./InputDataLabel";
 import Select from "./Select";
 import Pagination from "./Pagination";
 import Table from "./Table";
@@ -17,6 +18,7 @@ export {
   InputPassword,
   InputStatus,
   Pagination,
+  InputDataLabel,
   Select,
   Table,
   TextArea,

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import {
   Heading,
   Input,
+  InputDataLabel,
   TextArea,
   Button,
   Select,
@@ -12,6 +13,7 @@ import { MdOutlineClose } from "react-icons/md";
 
 const AddPrescription = () => {
   const { id } = useParams();
+
   const [medicines, setMedicines] = useState([
     {
       name: "",
@@ -56,7 +58,10 @@ const AddPrescription = () => {
       note,
     };
     try {
-      const { data } = await api.post(`/patient/${id}/prescription`, filteredData);
+      const { data } = await api.post(
+        `/patient/${id}/prescription`,
+        filteredData
+      );
       myToast(data.msg, "success");
     } catch (error) {
       myToast(error?.response?.data?.msg, "failure");
@@ -99,15 +104,16 @@ const AddPrescription = () => {
                   <MdOutlineClose />
                 </span>
               </div>
-              <Input
-                type="text"
+              <InputDataLabel
+                dataKey="medicineSuggestion"
                 label="Medicine Name"
                 value={medicine.name}
-                onChange={(e) => {
+                setValue={(newValue) => {
                   const newExercises = [...medicines];
-                  newExercises[index].name = e.target.value;
+                  newExercises[index].name = newValue;
                   setMedicines(newExercises);
                 }}
+                required={false}
               />
               <Input
                 type="text"
@@ -160,15 +166,16 @@ const AddPrescription = () => {
                   <MdOutlineClose />
                 </span>
               </div>
-              <Input
-                type="text"
+              <InputDataLabel
+                dataKey="exerciseSuggestion"
                 label="Exercise Name"
                 value={exercise.name}
-                onChange={(e) => {
+                setValue={(newValue) => {
                   const newExercises = [...exercises];
-                  newExercises[index].name = e.target.value;
+                  newExercises[index].name = newValue;
                   setExercises(newExercises);
                 }}
+                required={false}
               />
               <Input
                 type="text"

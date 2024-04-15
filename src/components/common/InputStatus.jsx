@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDistinctStatuses } from "../utils";
 import { Input, Select } from "../common";
 
-const InputStatus = ({status, setStatus}) => {
+const InputStatus = ({ status, setStatus }) => {
   const statuses = useDistinctStatuses();
   const [addStatus, setAddStatus] = useState(false);
   return (

@@ -6,6 +6,7 @@ import useHandleReturnUser from "./hooks/useHandleReturnUser";
 import useUserContext from "./hooks/useUserContext";
 import useWindowWidth from "./hooks/useWindowWidth";
 import useDistinctStatuses from "./hooks/useDistinctStatuses";
+import useDistinctValues from "./hooks/useDistinctValues";
 
 export {
   api,
@@ -16,4 +17,5 @@ export {
   useUserContext,
   useWindowWidth,
   useDistinctStatuses,
+  useDistinctValues,
 };
