@@ -59,12 +59,18 @@ const ManagePatients = () => {
     }
   };
   const statuses = useDistinctStatuses();
+  const calcAge = (dob) => {
+    const parts = dob.split("-");
+    const dateOfBirth = new Date(parts[2], parts[1] - 1, parts[0]);
+    const diff_ms = Date.now() - dateOfBirth.getTime();
+    const age_dt = new Date(diff_ms);
+    return Math.abs(age_dt.getUTCFullYear() - 1970);
+  };
+
   return (
     <div>
       <div className="flex justify-between items-center mb-4">
-        <Heading level={2}>
-          Manage Patients
-        </Heading>
+        <Heading level={2}>Manage Patients</Heading>
         <div className="flex items-center gap-4">
           <Input
             label="Search Patient"
@@ -102,7 +108,7 @@ const ManagePatients = () => {
         {patients.map((patient) => (
           <tr key={patient._id}>
             <td>{patient.name}</td>
-            <td>{patient.age}</td>
+            <td>{calcAge(patient.dob)}</td>
             <td>
               <div className="flex flex-col">
                 <a

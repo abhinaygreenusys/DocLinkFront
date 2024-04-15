@@ -12,7 +12,7 @@ const EditPatient = () => {
   const { id } = useParams();
   const [patient, setPatient] = useState({
     name: "",
-    age: "",
+    dob: "",
     phone: "",
     email: "",
     status: "",
@@ -66,23 +66,23 @@ const EditPatient = () => {
         <section className="flex flex-col gap-4 mb-6">
           <Heading level={4}>Account Details</Heading>
           <p className="flex gap-4 text-black">
-            <span className="text-sm font-medium w-20">Account ID:</span>
+            <span className="text-sm font-medium w-24">Account ID:</span>
             <span className="text-sm">{id}</span>
           </p>
           <p className="flex gap-4 text-black">
-            <span className="text-sm font-medium w-20">Name:</span>
+            <span className="text-sm font-medium w-24">Name:</span>
             <span className="text-sm">{patient.name}</span>
           </p>
           <p className="flex gap-4 text-black">
-            <span className="text-sm font-medium w-20">Age:</span>
-            <span className="text-sm">{patient.age}</span>
+            <span className="text-sm font-medium w-24">Date of Birth:</span>
+            <span className="text-sm">{patient.dob}</span>
           </p>
           <p className="flex gap-4 text-black">
-            <span className="text-sm font-medium w-20">Phone:</span>
+            <span className="text-sm font-medium w-24">Phone:</span>
             <span className="text-sm">{patient.phone}</span>
           </p>
           <p className="flex gap-4 text-black">
-            <span className="text-sm font-medium w-20">Email:</span>
+            <span className="text-sm font-medium w-24">Email:</span>
             <span className="text-sm">{patient.email}</span>
           </p>
         </section>

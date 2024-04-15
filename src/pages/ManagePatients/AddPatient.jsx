@@ -10,19 +10,18 @@ import {
 
 const AddPatient = () => {
   const [name, setName] = useState("");
-  const [age, setAge] = useState("");
+  const [dob, setDob] = useState(new Date().toISOString().split("T")[0]);
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [status, setStatus] = useState("");
   const [note, setNote] = useState("");
-
   const addPatient = async () => {
     try {
       const { data } = await api.post("/patient", {
         name,
         email,
         phone,
-        age,
+        dob: dob.split("-").reverse().join("-"),
         status: status.toLowerCase(),
         note,
       });
@@ -58,11 +57,12 @@ const AddPatient = () => {
             required
           />
           <Input
-            label="Age"
-            value={age}
+            label="Date of Birth"
+            type="date"
+            value={dob}
             onChange={(e) => {
-              const age = e.target.value;
-              if (!isNaN(age) && age.length <= 60) setAge(age);
+              const dob = e.target.value;
+              if (dob <= new Date().toISOString().split("T")[0]) setDob(dob);
             }}
             required
           />
