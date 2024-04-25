@@ -52,7 +52,7 @@ const Dashboard = () => {
                 dashboard.totalPrescriptions === 0
                   ? "0"
                   : (
-                      dashboard.totalPatients / dashboard.totalPrescriptions
+                      dashboard.totalPrescriptions / dashboard.totalPatients
                     ).toFixed(2)
               }
             />
