@@ -39,7 +39,7 @@ const Dashboard = () => {
         <div>
           <div className="flex gap-4 flex-wrap">
             <DashboardCard
-              title="Total Patients"
+              title="Total Verified Patients"
               number={dashboard.totalPatients}
             />
             <DashboardCard

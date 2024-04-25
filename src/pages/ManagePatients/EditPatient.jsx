@@ -85,6 +85,12 @@ const EditPatient = () => {
             <span className="text-sm font-medium w-24">Email:</span>
             <span className="text-sm">{patient.email}</span>
           </p>
+          <p className="flex gap-4 text-black">
+            <span className="text-sm font-medium w-24">Is Verified:</span>
+            <span className="text-sm">
+              {patient.isVerifiy ? "Verified" : "Not Verified"}
+            </span>
+          </p>
         </section>
         <section className="flex flex-col gap-4 mb-6">
           <Heading level={4}>Patient Details</Heading>

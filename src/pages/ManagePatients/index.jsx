@@ -101,6 +101,7 @@ const ManagePatients = () => {
           "Contact Info",
           "Created At",
           "Updated At",
+          "Verified Status",
           "Actions",
         ]}
         loading={loading}
@@ -127,6 +128,7 @@ const ManagePatients = () => {
             </td>
             <td className="w-36">{dateFormatter(patient.createdAt)}</td>
             <td className="w-36">{dateFormatter(patient.updatedAt)}</td>
+            <td>{patient.isVerifiy ? "Verified" : "Not Verified"}</td>
             <td>
               <div className="flex">
                 <span
