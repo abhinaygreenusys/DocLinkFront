@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import {
   Heading,
   Input,
@@ -10,9 +10,11 @@ import {
 } from "../../components/common";
 import { api, myToast } from "../../components/utils";
 import { MdOutlineClose } from "react-icons/md";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 const AddPrescription = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [medicines, setMedicines] = useState([
     {
@@ -39,7 +41,9 @@ const AddPrescription = () => {
   const [refrainFrom, setRefrainFrom] = useState("");
   const [note, setNote] = useState("");
 
+  const [loading, setLoading] = useState(false);
   const addPrescription = async () => {
+    setLoading(true);
     const filteredData = {
       medicines: medicines
         .filter((m) => m.name && m.dosage)
@@ -63,8 +67,11 @@ const AddPrescription = () => {
         filteredData
       );
       myToast(data.msg, "success");
+      setLoading(false);
+      navigate("/patients/view");
     } catch (error) {
       myToast(error?.response?.data?.msg, "failure");
+      setLoading(false);
     }
   };
 
@@ -137,7 +144,7 @@ const AddPrescription = () => {
               ])
             }
           >
-            Add Medicine
+            Add Another Medicine Group
           </Button>
         </div>
       </section>
@@ -212,7 +219,7 @@ const AddPrescription = () => {
               ])
             }
           >
-            Add Exercise
+            Add Another Exercise Group
           </Button>
         </div>
       </section>
@@ -277,7 +284,7 @@ const AddPrescription = () => {
               setDiet([...diet, { name: "", partOfDay: "", show: true }])
             }
           >
-            Add Diet
+            Add Another Diet Group
           </Button>
         </div>
       </section>
@@ -297,7 +304,15 @@ const AddPrescription = () => {
           onChange={(e) => setNote(e.target.value)}
         />
       </section>
-      <Button type="submit" className="w-full">
+      <Button
+        type="submit"
+        className="w-full flex justify-center items-center gap-2"
+      >
+        {loading && (
+          <AiOutlineLoading3Quarters
+            className={loading ? "animate-spin" : ""}
+          />
+        )}
         Add Prescription
       </Button>
     </form>
