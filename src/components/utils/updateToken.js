@@ -18,6 +18,7 @@ const updateToken = async () => {
     console.log(e);
     localStorage.removeItem("doclink-token");
     localStorage.removeItem("doclink-refresh-token");
+    window.location.href = "/login";
     return null;
   }
 };
